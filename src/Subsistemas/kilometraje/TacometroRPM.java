@@ -1,13 +1,21 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas.kilometraje;
 
-/**
- *
- * @author UTN
- */
 public class TacometroRPM {
-    
+    private int rpmActual;
+
+    public int getRpmActual() {
+        return rpmActual;
+    }
+
+    public void setRpmActual(int rpmActual) {
+        this.rpmActual = rpmActual;
+    }
+
+    public TacometroRPM() {
+        this.rpmActual = 0;
+    }
+
 }
