@@ -1,13 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas.Transmicion;
 
-/**
- *
- * @author UTN
- */
 public class SistemaTransmicion {
+    private PosicionTransmision posicionActual;
+
+    public PosicionTransmision getPosicionActual() {
+        return posicionActual;
+    }
+
+    public void setPosicionActual(PosicionTransmision posicionActual) {
+        this.posicionActual = posicionActual;
+    }
+
+    public SistemaTransmicion() { //Constructor
+        this.posicionActual = PosicionTransmision.PARKING;
+    }
     
+     public boolean puedeMoverse() { //Metodo
+         return posicionActual == PosicionTransmision.DRIVE || posicionActual == PosicionTransmision.REVERSE;
+     }
 }
