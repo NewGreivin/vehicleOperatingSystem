@@ -1,13 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas.Transmicion;
 
-/**
- *
- * @author UTN
- */
-public class PedalFreno {
+public class PedalFreno extends Pedal {
+    private double intensidadFreno;
+
+    public double getIntensidadFreno() {
+        return intensidadFreno;
+    }
     
+    @Override
+    public void soltar() {
+        this.intensidadFreno = 0.0;
+        super.soltar(); 
+    }
+
+    public PedalFreno(double presion) {
+        this.intensidadFreno = presion;
+        super.presionar();
+    }
+
 }
