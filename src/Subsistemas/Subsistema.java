@@ -1,13 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas;
 
-/**
- *
- * @author UTN
- */
-public interface Subsistema {
-    
+public interface Subsistema<T> {
+    public void encender (T t);
+    public void apagar (T t);
+    public String estadoActual();
 }
