@@ -1,13 +1,22 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Enum.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas.Transmicion;
 
-/**
- *
- * @author UTN
- */
 public enum PosicionTransmision {
+    PARKING("P"),
+    REVERSE("R"),
+    NEUTRO("N"),
+    DRIVE("D");
+    
+    private String posicionMarcha;
+
+    public String getPosicionMarcha() {
+        return posicionMarcha;
+    }
+
+    private PosicionTransmision(String posicionMarcha) {
+        this.posicionMarcha = posicionMarcha;
+    }
     
 }
