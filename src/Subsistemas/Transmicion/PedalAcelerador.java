@@ -1,13 +1,24 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas.Transmicion;
 
-/**
- *
- * @author UTN
- */
-public class PedalAcelerador {
+public class PedalAcelerador extends Pedal {
+    private double presion;
+
+    public double getPresion() {
+        return presion;
+    }
+    
+    @Override
+    public void soltar() {
+        this.presion = 0.0;
+        super.soltar(); 
+    }
+
+    public PedalAcelerador(double presion) {
+        this.presion = presion;
+        super.presionar();
+    }
     
 }
