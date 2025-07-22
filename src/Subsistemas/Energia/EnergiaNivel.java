@@ -1,13 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas.Energia;
 
-/**
- *
- * @author UTN
- */
-public class EnergiaNivel {
+public enum EnergiaNivel {
+    LLENO("Lleno"),
+    ALTO("Alto"),
+    MEDIO("Medio"),
+    BAJO("Bajo"),
+    VACIO("Vacio");
+    
+    private String energia;
+
+    public String getEnergia() {
+        return energia;
+    }
+
+    private EnergiaNivel(String energia) {
+        this.energia = energia;
+    }
     
 }
