@@ -1,13 +1,23 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Greivin
  */
 package Subsistemas.kilometraje;
 
-/**
- *
- * @author UTN
- */
 public class Odometro {
+    private double kmRecorridos;
+
+    public double getkmRecorridos() {
+        return kmRecorridos;
+    }
+
+    public void setkmRecorridos(double kmRecorridos) {
+        if (kmRecorridos > 0) {
+        this.kmRecorridos = kmRecorridos;
+        }
+    }
+
+    public Odometro() {
+        this.kmRecorridos = 0;
+    }
     
 }
