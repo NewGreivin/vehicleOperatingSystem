@@ -6,8 +6,21 @@ package Subsistemas.Limpiaparabrisas;
 
 /**
  *
- * @author UTN
+ * @author Marisol
  */
 public enum ParabrisasVelocidad {
+    APAGADA("Apagada"),
+    BAJA("Baja"),
+    MEDIA("Media"),
+    ALTA("Alta");
     
+    private final String descripcion;
+    
+    ParabrisasVelocidad(String descripcion){
+        this.descripcion = descripcion;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
 }

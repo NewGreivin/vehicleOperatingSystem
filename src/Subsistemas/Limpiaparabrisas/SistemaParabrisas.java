@@ -6,8 +6,27 @@ package Subsistemas.Limpiaparabrisas;
 
 /**
  *
- * @author UTN
+ * @author Marisol
  */
 public class SistemaParabrisas {
+    private ParabrisasVelocidad velocidadActual;
+    
+    public SistemaParabrisas(){
+        this.velocidadActual = ParabrisasVelocidad.APAGADA;
+    }
+    
+    public void cambiarVelocidad(ParabrisasVelocidad nuevaVelocidad){
+        this.velocidadActual = nuevaVelocidad;
+        System.out.println("La velocidad del limpiaparabrisas se cambio a: " + nuevaVelocidad.getDescripcion());
+    }
+    
+    public void detener(){
+        this.velocidadActual = ParabrisasVelocidad.APAGADA;
+        System.out.println("Limpiaparabrisas apagado");
+    }
+
+    public ParabrisasVelocidad getVelocidadActual() {
+        return velocidadActual;
+    }
     
 }
