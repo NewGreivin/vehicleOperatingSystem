@@ -9,5 +9,22 @@ package Subsistemas.Alarmas;
  * @author UTN
  */
 public class ControlAlarma {
+    private boolean activa;
+
+    public boolean isActiva() {
+        return activa;
+    }
     
+    public ControlAlarma(boolean activa) {
+        this.activa = activa;
+    }
+
+    public void activarAlarma() {
+        activa = true;
+    }
+
+    public void desactivarAlarma() {
+        activa = false;
+    }
+
 }
