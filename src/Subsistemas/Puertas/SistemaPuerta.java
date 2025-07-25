@@ -4,10 +4,37 @@
  */
 package Subsistemas.Puertas;
 
+import Interfaces.Controlable;
+import Interfaces.Informacion;
+
 /**
  *
  * @author UTN
  */
-public class SistemaPuerta {
+    public class SistemaPuerta extends Puerta implements Controlable {
+
+    public SistemaPuerta(boolean puerta) {
+        super(puerta);
+    }
+
+    @Override
+    public void encender() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
+    @Override
+    public void apagar() {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
+    @Override
+    public void abrir() {
+        this.abrirPuerta();
+    }
+
+    @Override
+    public void cerrar() {
+        this.cerrarPuerta();
+    }
 }
+
