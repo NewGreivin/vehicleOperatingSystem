@@ -3,9 +3,9 @@
  */
 package Subsistemas.Energia;
 
-import Subsistemas.Subsistema;
+import Interfaces.Informacion;
 
-public class SistemaEnergia implements Subsistema {
+public class SistemaEnergia implements Informacion {
     private EnergiaNivel nivel;
     private int energiaActual;  // De 0 a 100
 
@@ -58,12 +58,6 @@ public class SistemaEnergia implements Subsistema {
     @Override
     public String estadoActual() {
     return "Energía: " + energiaActual + "% (" + nivel + ")";
-    }
-    @Override
-    public void encender(Object t) { 
-    }
-    @Override
-    public void apagar(Object t) { 
     }
        
 }

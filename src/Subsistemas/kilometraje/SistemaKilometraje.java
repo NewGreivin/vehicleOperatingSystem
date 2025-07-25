@@ -3,9 +3,9 @@
  */
 package Subsistemas.kilometraje;
 
-import Subsistemas.Subsistema;
+import Interfaces.Informacion;
 
-public class SistemaKilometraje implements Subsistema {
+public class SistemaKilometraje implements Informacion {
     private Odometro odometro;
     private Velocimetro velocimetro;
     private TacometroRPM tacometro;
@@ -26,16 +26,6 @@ public class SistemaKilometraje implements Subsistema {
         this.odometro = new Odometro();
         this.velocimetro = new Velocimetro();
         this.tacometro = new TacometroRPM();
-    }
-
-    @Override
-    public void encender(Object t) {
-        throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public void apagar(Object t) {
-        throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
