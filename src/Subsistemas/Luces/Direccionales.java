@@ -8,13 +8,13 @@ package Subsistemas.Luces;
  *
  * @author Marisol
  */
-public class Direccionales extends Luces {
+public class Direccionales extends Luces{
     public void encencerDireccional(DireccionEnum direccion){
         encender();
         System.out.println("Direccional " + direccion.getNombre() + " encendida");
     }
     
-     public void apagarDireccional(){
+    public void apagarDireccional(){
         apagar();
         System.out.println("Direccionales apagadas");
     }

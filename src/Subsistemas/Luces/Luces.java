@@ -4,29 +4,32 @@
  */
 package Subsistemas.Luces;
 
+import Interfaces.Activable;
+
 /**
  *
  * @author Marisol
  */
-public class Luces {
+public class Luces implements Activable{  
+    
+    @Override
+    public void encender() {
+       encendidas = true;
+       System.out.println("Luces encendidas");
+    }
+
+    @Override
+    public void apagar() {
+      encendidas = false;
+        System.out.println("Luces apagadas");
+    }
     private boolean encendidas;
     
     public Luces(){
         this.encendidas = false;
     }
-    
-    public void encender(){
-        encendidas = true;
-        System.out.println("Luces encendidas");
-    }
-    
-    public void apagar(){
-        encendidas = false;
-        System.out.println("Luces apagadas");
-    }
-    
+   
     public boolean estanEncendidas(){
         return encendidas;
     }
-        
 }
