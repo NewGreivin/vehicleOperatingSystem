@@ -1,10 +1,8 @@
 /**
  * @author Greivin
  */
-package Subsistemas;
+package Interfaces;
 
-public interface Subsistema<T> {
-    public void encender (T t);
-    public void apagar (T t);
+public interface Informacion{
     public String estadoActual();
 }
