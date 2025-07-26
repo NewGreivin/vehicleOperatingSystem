@@ -3,13 +3,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Subsistemas.Encendido;
+import Interfaces.Activable;
 /**
  *
  * @author Genesis
  */
-
-
-public class SistemaEncendido implements Subsitema {
+public class SistemaEncendido implements Activable {
     private EstadoEncendido estado;
 
     public SistemaEncendido() {
@@ -19,21 +18,17 @@ public class SistemaEncendido implements Subsitema {
     @Override
     public void encender() {
         estado = EstadoEncendido.ENCENDIDO;
-        System.out.println("El vehículo ha sido encendido.");
+        System.out.println("Vehículo encendido.");
     }
 
     @Override
     public void apagar() {
         estado = EstadoEncendido.APAGADO;
-        System.out.println("El vehículo ha sido apagado.");
+        System.out.println("Vehículo apagado.");
     }
 
-    @Override
     public String estadoActual() {
         return estado.name();
     }
-
-    public boolean estaEncendido() {
-        return estado == EstadoEncendido.ENCENDIDO;
-    }
 }
+

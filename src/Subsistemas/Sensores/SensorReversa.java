@@ -6,8 +6,26 @@ package Subsistemas.Sensores;
 
 /**
  *
- * @author UTN
+ * @author Genesis
  */
 public class SensorReversa {
-    
+    private boolean activado;
+
+    public SensorReversa() {
+        this.activado = false;
+    }
+
+    public void activar() {
+        activado = true;
+        System.out.println("Sensor de reversa activado.");
+    }
+
+    public void desactivar() {
+        activado = false;
+        System.out.println("Sensor de reversa desactivado.");
+    }
+
+    public boolean estaActivo() {
+        return activado;
+    }
 }
