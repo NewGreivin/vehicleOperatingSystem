@@ -4,13 +4,13 @@
  */
 package Subsistemas.Alarmas;
 
-import Interfaces.Controlable;
+import Interfaces.Activable;
 
 /**
  *
  * @author UTN
  */
-public class SistemaAlarma extends ControlAlarma implements Controlable{
+public class SistemaAlarma extends ControlAlarma implements Activable{
 
     public SistemaAlarma(boolean activa) {
         super(activa);
@@ -26,14 +26,4 @@ public class SistemaAlarma extends ControlAlarma implements Controlable{
         this.desactivarAlarma();
     }
 
-    @Override
-    public void abrir() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void cerrar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }

@@ -4,13 +4,13 @@
  */
 package Subsistemas.Cinturones;
 
-import Interfaces.Controlable;
+import Interfaces.Activable;
 
 /**
  *
  * @author UTN
  */
-public class SistemaCinturon extends Cinturon implements Controlable {
+public class SistemaCinturon extends Cinturon implements Activable {
 
     public SistemaCinturon(boolean cinturon) {
         super(cinturon);
@@ -25,15 +25,4 @@ public class SistemaCinturon extends Cinturon implements Controlable {
     public void apagar() {
         this.apagarCinturon();
     }
-
-    @Override
-    public void abrir() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void cerrar() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-    
 }
