@@ -3,18 +3,15 @@
  */
 package Subsistemas.Transmicion;
 
+import Core.Vehiculos.Motor;
+
 public abstract class Pedal {
-    protected boolean presionado;
+    protected Motor motor;
 
-    public void presionar() {
-        presionado = true;
+    public Pedal(Motor motor) {
+        this.motor = motor;
     }
 
-    public void soltar() {
-        presionado = false;
-    }
-
-    public boolean estaPresionado() {
-        return presionado;
-    }
+    public abstract void presionar(); //Instanciar metodos, mas no programarlos (Metodos abstractos)
+    public abstract void soltar();
 }
