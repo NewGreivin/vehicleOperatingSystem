@@ -3,16 +3,11 @@
  */
 package Core.Vehiculos;
 
-/**
- * Clase que simula el motor del vehiculo
- * Representa lo esencial para el funcionamiento
- * controla el encendido, revoluciones y potencia del motor
- */
+import Interfaces.Activable;
 
-public class Motor {
+public class Motor implements Activable{
     private boolean encendido;
     private int revoluciones;  // en RPM
-    private int potencia;         // en caballos de fuerza (HP)
 
     public boolean isEncendido() {
         return encendido;
@@ -20,26 +15,36 @@ public class Motor {
     public int getRevoluciones() {
         return revoluciones;
     }
-    public int getPotencia() {
-        return potencia;
-    }
 
-    public void setRevoluciones(int revoluciones) {
-        this.revoluciones = revoluciones;
-    }
-
-    public Motor(int potencia) {
-        this.encendido = false;
+    public Motor() {
         this.revoluciones = 0;
-        this.potencia = potencia;
+        this.encendido = false;
     }
     
-    public void encender(){
+    @Override
+    public void encender() {
         this.encendido = true;
+        revoluciones = 800;
     }
-            
+
+    @Override
     public void apagar() {
         this.encendido = false;
         revoluciones = 0;
     }
+    
+    public void aumentarRevoluciones(int cantidadRevolu) {
+        if (encendido) {
+            revoluciones += cantidadRevolu;
+            if (revoluciones > 7000) revoluciones = 7000;
+        }
+    }
+
+    public void disminuirRevoluciones(int cantidadRevolu) {
+        if (encendido) {
+            revoluciones -= cantidadRevolu;
+            if (revoluciones < 800) revoluciones = 800;
+        }
+    }
+    
 }
