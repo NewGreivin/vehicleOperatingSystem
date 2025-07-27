@@ -3,19 +3,22 @@
  */
 package Subsistemas.kilometraje;
 
+import Subsistemas.Transmicion.SistemaTransmicion;
+
 public class Velocimetro {
-    private double velocidadActual;
+    private SistemaTransmicion transmision;
 
-    public double getVelocidadActual() {
-        return velocidadActual;
+    public int getTransmision() {
+        return transmision.getVelocidad();
+    }
+    
+    public Velocimetro(SistemaTransmicion transmision) {
+        this.transmision = transmision;
     }
 
-    public void setVelocidadActual(double velocidadActual) {
-        this.velocidadActual = velocidadActual;
+    @Override
+    public String toString() {
+        return transmision.getVelocidad() + "";
     }
-
-    public Velocimetro() {
-        this.velocidadActual = 0;
-    }
-
+    
 }

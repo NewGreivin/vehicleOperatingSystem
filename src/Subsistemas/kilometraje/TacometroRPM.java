@@ -3,19 +3,22 @@
  */
 package Subsistemas.kilometraje;
 
+import Core.Vehiculos.Motor;
+
 public class TacometroRPM {
-    private int rpmActual;
+    private Motor motor;
 
-    public int getRpmActual() {
-        return rpmActual;
+    public int getMotorRevoluciones() {
+        return motor.getRevoluciones();
     }
 
-    public void setRpmActual(int rpmActual) {
-        this.rpmActual = rpmActual;
+    public TacometroRPM(Motor motor) {
+        this.motor = motor;
     }
 
-    public TacometroRPM() {
-        this.rpmActual = 0;
+    @Override
+    public String toString() {
+        return motor.getRevoluciones() + "";
     }
 
 }

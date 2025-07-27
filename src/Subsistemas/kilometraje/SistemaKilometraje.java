@@ -3,34 +3,34 @@
  */
 package Subsistemas.kilometraje;
 
-import Interfaces.Informacion;
+import Core.Vehiculos.Motor;
+import Subsistemas.Transmicion.SistemaTransmicion;
 
-public class SistemaKilometraje implements Informacion {
+public class SistemaKilometraje {
     private Odometro odometro;
     private Velocimetro velocimetro;
     private TacometroRPM tacometro;
 
-    public void setOdometro(Odometro odometro) {
-        this.odometro = odometro;
+    public Odometro getOdometro() {
+        return odometro;
+    }
+    public Velocimetro getVelocimetro() {
+        return velocimetro;
+    }
+    public TacometroRPM getTacometro() {
+        return tacometro;
     }
 
-    public void setVelocimetro(Velocimetro velocimetro) {
-        this.velocimetro = velocimetro;
-    }
-
-    public void setTacometro(TacometroRPM tacometro) {
-        this.tacometro = tacometro;
-    }
-
-    public SistemaKilometraje() {
+    public SistemaKilometraje(SistemaTransmicion transmision, Motor motor) {
         this.odometro = new Odometro();
-        this.velocimetro = new Velocimetro();
-        this.tacometro = new TacometroRPM();
+        this.velocimetro = new Velocimetro(transmision);
+        this.tacometro = new TacometroRPM(motor);
     }
 
-    @Override
-    public String estadoActual() {
-         throw new UnsupportedOperationException("Not supported yet."); //Falta definir el mensaje a la hora del interfaz
+    public void actualizar() {
+        odometro.setAddkmRecorridos(velocimetro.getTransmision());
+        velocimetro.getTransmision();
+        tacometro.getMotorRevoluciones();
     }
 
 }
