@@ -4,31 +4,41 @@
  */
 package Subsistemas.Encendido;
 import Core.Vehiculos.Motor;
+import Subsistemas.Energia.EnergiaNivel;
+import Subsistemas.Energia.SistemaEnergia;
+
 /**
  *
  * @author Genesis
  */
 public class SistemaEncendido {
-
     private EstadoEncendido estado;
-    private final Motor motor;
+    private Motor motor;
+    private SistemaEnergia sistemaEnergia;
+    
+        public EstadoEncendido getEstado() {
+        return estado;
+    }
 
-    public SistemaEncendido(Motor motor) {
-        this.motor = motor;
-        this.estado = EstadoEncendido.APAGADO;
+    public SistemaEncendido(Motor motor, SistemaEnergia sistemaEnergia) {
+    this.motor = motor;
+    this.sistemaEnergia = sistemaEnergia;
+    this.estado = EstadoEncendido.APAGADO;
     }
 
     public void alternarEncendido() {
-        if (estado == EstadoEncendido.APAGADO) {
+       if (estado == EstadoEncendido.APAGADO) {
+        if (sistemaEnergia.getNivel() != EnergiaNivel.VACIO) {
             motor.encender();
             estado = EstadoEncendido.ENCENDIDO;
         } else {
-            motor.apagar();
-            estado = EstadoEncendido.APAGADO;
+            System.out.println("¡No hay energía suficiente para encender el vehículo!");
         }
+        } else {
+        motor.apagar();
+        estado = EstadoEncendido.APAGADO;
+        System.out.println("Vehículo apagado.");
+    }
     }
 
-    public EstadoEncendido getEstado() {
-        return estado;
-    }
 }
