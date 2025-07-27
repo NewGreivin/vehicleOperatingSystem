@@ -3,22 +3,32 @@
  */
 package Subsistemas.Transmicion;
 
-public class PedalFreno extends Pedal {
-    private double intensidadFreno;
+import Core.Vehiculos.Motor;
 
-    public double getIntensidadFreno() {
-        return intensidadFreno;
+public class PedalFreno extends Pedal {
+
+    private boolean presionado;
+
+    public boolean isPresionado() {
+        return presionado;
     }
     
-    @Override
-    public void soltar() {
-        this.intensidadFreno = 0.0;
-        super.soltar(); 
+    public PedalFreno(Motor motor) {
+        super(motor);
+        this.presionado = false;
     }
 
-    public PedalFreno(double presion) {
-        this.intensidadFreno = presion;
-        super.presionar();
+    @Override
+    public void presionar() {
+        if (motor.isEncendido()) {
+            motor.disminuirRevoluciones(700); // frenar baja más las revoluciones
+            presionado = true;
+        }
+    }
+
+    @Override
+    public void soltar() {
+        presionado = false;
     }
 
 }
