@@ -10,9 +10,9 @@ public class Odometro {
         return kmRecorridos;
     }
 
-    public void setkmRecorridos(double kmRecorridos) {
-        if (kmRecorridos > 0) {
-        this.kmRecorridos = kmRecorridos;
+    public void setAddkmRecorridos(double addKm) {
+        if (addKm > 0) {
+        this.kmRecorridos += addKm;
         }
     }
 
