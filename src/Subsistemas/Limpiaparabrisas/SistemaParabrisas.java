@@ -4,29 +4,41 @@
  */
 package Subsistemas.Limpiaparabrisas;
 
+import Subsistemas.Encendido.EstadoEncendido;
+import Subsistemas.Encendido.SistemaEncendido;
+
 /**
  *
  * @author Marisol
  */
 public class SistemaParabrisas {
     private ParabrisasVelocidad velocidadActual;
+    private SistemaEncendido sistemaEncendido;
     
-    public SistemaParabrisas(){
+    public ParabrisasVelocidad getVelocidadActual(){
+        return velocidadActual;
+    }
+    
+    public SistemaParabrisas(SistemaEncendido sistemaEncendido){
+        this.sistemaEncendido = sistemaEncendido;
         this.velocidadActual = ParabrisasVelocidad.APAGADA;
     }
     
     public void cambiarVelocidad(ParabrisasVelocidad nuevaVelocidad){
-        this.velocidadActual = nuevaVelocidad;
-        System.out.println("La velocidad del limpiaparabrisas se cambio a: " + nuevaVelocidad.getDescripcion());
+        if (sistemaEncendido.getEstado() == EstadoEncendido.ENCENDIDO) {
+            this.velocidadActual = nuevaVelocidad;
+            System.out.println("La velocidad del limpiaparabrisas se cambio a: " + nuevaVelocidad.getDescripcion());
+        } else {
+            System.out.println("No se puede cambiar la velocidad. El sistema de encendido esta apagado.");
+        }
     }
     
     public void detener(){
-        this.velocidadActual = ParabrisasVelocidad.APAGADA;
-        System.out.println("Limpiaparabrisas apagado");
+     if (sistemaEncendido.getEstado() == EstadoEncendido.ENCENDIDO) {
+            this.velocidadActual = ParabrisasVelocidad.APAGADA;
+            System.out.println("Limpiaparabrisas apagado");
+        } else {
+            System.out.println("El sistema de encendido esta apagado. El limpiaparabrisas ya esta inactivo.");
+        }
     }
-
-    public ParabrisasVelocidad getVelocidadActual() {
-        return velocidadActual;
-    }
-    
 }
