@@ -9,26 +9,31 @@ package Subsistemas.Cinturones;
  * @author UTN
  */
 public class Cinturon {
-    private boolean cinturon;
+    private boolean cinturon; // true: abrochado
+    private TipoCinturon tipo;
 
     public boolean isCinturon() {
         return cinturon;
     }
+    public TipoCinturon getTipo() {
+        return tipo;
+    }
 
-    public Cinturon(boolean cinturon) {
+    public Cinturon(boolean cinturon, TipoCinturon tipo) {
         this.cinturon = cinturon;
+        this.tipo = tipo;
     }
 
     @Override
     public String toString() {
-        return "Cinturon{" + "cinturon=" + cinturon + '}';
+        return "Cinturon: " + "tipo: " + tipo + ", abrochado: " + cinturon;
     }
     
     public void encenderCinturon(){
         this.cinturon=true;
     }
     
-    public void apagarCinturon(){
-        this.cinturon=false;
+    public void apagarCinturon() {
+        this.cinturon = false;
     }
 }
