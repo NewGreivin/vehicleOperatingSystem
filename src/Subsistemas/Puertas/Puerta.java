@@ -10,7 +10,7 @@ package Subsistemas.Puertas;
 public class Puerta {
     private boolean puerta; //True: Abierta & False: Cerrada
     private boolean bloqueada; // True: con seguro
-    
+
     public boolean isPuerta() {
         return puerta;
     }
@@ -47,4 +47,5 @@ public class Puerta {
     public void desbloquear() {
         this.bloqueada = false;
     }
+
 }
