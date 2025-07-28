@@ -10,5 +10,11 @@ package Subsistemas.Encendido;
  */
 public enum EstadoEncendido {
     ENCENDIDO,
-    APAGADO
+    APAGADO;
+    
+    private boolean encendido;
+
+    public boolean isEncendido() {
+        return encendido;
+    }
 }
