@@ -10,26 +10,25 @@ import Interfaces.Activable;
  *
  * @author Marisol
  */
-public class Luces implements Activable{  
+public abstract class Luces implements Activable{  
+    protected boolean encendidas;
+    
+    public boolean isEncendidas(){
+        return encendidas;
+    }
+    
+    public Luces(){
+        this.encendidas = false;
+    }
     
     @Override
     public void encender() {
        encendidas = true;
-       System.out.println("Luces encendidas");
     }
 
     @Override
     public void apagar() {
       encendidas = false;
-        System.out.println("Luces apagadas");
     }
-    private boolean encendidas;
-    
-    public Luces(){
-        this.encendidas = false;
-    }
-   
-    public boolean estanEncendidas(){
-        return encendidas;
-    }
+
 }
