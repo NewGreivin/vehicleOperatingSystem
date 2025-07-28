@@ -5,6 +5,8 @@
 package Subsistemas.radio;
 
 import Interfaces.Activable;
+import Subsistemas.Encendido.EstadoEncendido;
+import Subsistemas.Encendido.SistemaEncendido;
 
 /**
  *
@@ -13,17 +15,32 @@ import Interfaces.Activable;
 public class SistemaRadio implements Activable{
     private RadioModo modoActual;
     private boolean encendida;
+    private SistemaEncendido sistemaEncendido;
+
+    public RadioModo getModoActual() {
+        return modoActual;
+    }
     
-    public SistemaRadio(){
+    public boolean isEncendida(){
+        return encendida;
+    }
+    
+    public SistemaRadio(SistemaEncendido sistemaEncendido){
         this.modoActual = RadioModo.FM;
-        this.encendida = false;  
+        this.encendida = false; 
+        this.sistemaEncendido = sistemaEncendido;
     }
 
     @Override
     public void encender() {
-        encendida = true;
-        System.out.println("Radio encendido. Modo: " + modoActual.getDescripcion());
-    }
+        if (sistemaEncendido.getEstado() == EstadoEncendido.ENCENDIDO) {
+            encendida = true;
+            System.out.println("Radio encendida. Modo: " + modoActual.getDescripcion());
+        } else {
+            encendida = false;
+            System.out.println("No se puede encender la radio. El vehículo esta apagado.");
+        }
+    }       
 
     @Override
     public void apagar() {
@@ -39,13 +56,10 @@ public class SistemaRadio implements Activable{
             System.out.println("No se puede cambiar el modo. Radio apagado");
         }
     }
-    
-    public boolean estaEncendida(){
-        return encendida;
+ 
+    public void verificarApagado() {
+        if (sistemaEncendido.getEstado() == EstadoEncendido.APAGADO && encendida) {
+            apagar();
+       }
     }
-
-    public RadioModo getModoActual() {
-        return modoActual;
-    }
-    
 }
