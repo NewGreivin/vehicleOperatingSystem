@@ -5,6 +5,8 @@
 package Subsistemas.Climatizacion;
 
 import Interfaces.Activable;
+import Subsistemas.Encendido.EstadoEncendido;
+import Subsistemas.Encendido.SistemaEncendido;
 
 /**
  *
@@ -15,41 +17,46 @@ public class SistemaClimatizacion implements Activable {
     private boolean encendido;
     private ModoClimatizacion modoActual;
     private VelocidadVentilador velocidadActual;
+    private int temperatura;
+    private SistemaEncendido sistemaEncendido;
 
     public boolean isEncendido() {
         return encendido;
     }
-
     public ModoClimatizacion getModoActual() {
         return modoActual;
     }
-
     public VelocidadVentilador getVelocidadActual() {
         return velocidadActual;
     }
-    
-    
-    public void setModoActual(ModoClimatizacion modoActual) {
-        if(encendido) {
-            this.modoActual = modoActual;
-        }
+    public int getTemperatura() {
+        return temperatura;
     }
 
-    public void setVelocidadActual(VelocidadVentilador velocidadActual) {
-        if(encendido) {
-            this.velocidadActual = velocidadActual;
-        }
+    public void setModoActual(ModoClimatizacion newModo) {
+        this.modoActual = newModo;
     }
-    
-    public SistemaClimatizacion() {
+ 
+    public void setVelocidadActual(VelocidadVentilador newVelocidad) {
+        this.velocidadActual = newVelocidad;
+    }
+    public void setTemperatura(int newTemperatura) {
+        this.temperatura = newTemperatura;
+    }
+
+    public SistemaClimatizacion(SistemaEncendido sistemaEncendido) {
         this.encendido = false;
         this.modoActual = ModoClimatizacion.VENTILACION;
         this.velocidadActual = VelocidadVentilador.OFF;
+        this.temperatura = 22; //Grados
+        this.sistemaEncendido = sistemaEncendido;
     }
 
     @Override
     public void encender() {
-        encendido = true;
+        if (sistemaEncendido.getEstado() == EstadoEncendido.ENCENDIDO) {
+            encendido = true;
+        }
     }
 
     @Override
@@ -58,6 +65,5 @@ public class SistemaClimatizacion implements Activable {
         velocidadActual = VelocidadVentilador.OFF;
     }
 
-    
 }
 
