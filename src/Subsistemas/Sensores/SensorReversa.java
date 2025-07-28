@@ -10,22 +10,34 @@ package Subsistemas.Sensores;
  */
 public class SensorReversa {
     private boolean activado;
+    private boolean obstaculoDetectado;
 
-    public SensorReversa() {
-        this.activado = false;
-    }
-
-    public void activar() {
-        activado = true;
-        System.out.println("Sensor de reversa activado.");
-    }
-
-    public void desactivar() {
-        activado = false;
-        System.out.println("Sensor de reversa desactivado.");
-    }
-
-    public boolean estaActivo() {
+    public boolean isActivado() {
         return activado;
     }
-}
+    public boolean isObstaculoDetectado() {
+        return obstaculoDetectado;
+    }
+    
+    public SensorReversa() {
+        this.activado = false;
+        this.obstaculoDetectado = false;
+    }
+
+    //Sensor Reversa
+    public void activar() {
+        activado = true;
+    }
+    public void desactivar() {
+        activado = false;
+        obstaculoDetectado = false;
+    }
+   //Detector de obstaculo
+    public void ponerObstaculo() {
+        obstaculoDetectado = true;
+    }
+    public void removerObstaculo() {
+        obstaculoDetectado = false;
+    }
+} 
+
