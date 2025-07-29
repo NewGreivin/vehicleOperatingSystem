@@ -9,11 +9,15 @@ package Subsistemas.Luces;
  * @author Marisol
  */
 public class LucesInterior extends Luces{
-    public void ajustarNivel(int nivel){
-        if(estanEncendidas()){
-            System.out.println("Ajustando nivel de luz interior a nivel: " + nivel);
-        }else{
-            System.out.println("No se puede ajustar el nivel, luces estan apagadas");
+    public void encenderPorPuerta() {
+        if (!encendidas) {
+            encender();
+        }
+    }
+    
+    public void apagarPorPuerta() {
+        if (encendidas) {
+            apagar();
         }
     }
 }
