@@ -1,13 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+/**
+ * @author Greivin
  */
 package Core.Simuladores;
 
-/**
- *
- * @author UTN
- */
+import Core.Vehiculos.Vehiculo;
+
 public class Simulador {
+    private Vehiculo vehiculo;
+
+    public Vehiculo getVehiculo() {
+        return vehiculo;
+    }
+
+    public Simulador() {
+        this.vehiculo = new Vehiculo("Toyota", "Corolla", 1970);
+    }
     
 }
