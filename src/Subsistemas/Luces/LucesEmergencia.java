@@ -22,8 +22,8 @@ public class LucesEmergencia extends Luces {
 
     public void activarEmergencia() {
         encender(); 
-        direccionalIzquierda.encenderDireccional(DireccionEnum.IZQUIERDA);
-        direccionalDerecha.encenderDireccional(DireccionEnum.DERECHA);
+        direccionalIzquierda.encencerDireccional(DireccionEnum.IZQUIERDA);
+        direccionalDerecha.encencerDireccional(DireccionEnum.DERECHA);
     }
 
     public void desactivarEmergencia() {

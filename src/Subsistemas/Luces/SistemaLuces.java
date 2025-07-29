@@ -38,11 +38,12 @@ public class SistemaLuces {
         delanteras.apagarLuces();
     }
     
-    public void encenderDireccionalIzq(){ 
-        direccionales.encenderDireccional(DireccionEnum.IZQUIERDA);
+    public void encenderDireccionalIzq(){
+        direccionales.encencerDireccional(DireccionEnum.IZQUIERDA);
     }
+    
     public void encenderDireccionalDer(){ 
-        direccionales.encenderDireccional(DireccionEnum.DERECHA);
+        direccionales.encencerDireccional(DireccionEnum.DERECHA);
     }
     public void apagarDireccional(){
         direccionales.apagarDireccional();
