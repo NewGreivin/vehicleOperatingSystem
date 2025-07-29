@@ -10,36 +10,48 @@ package Subsistemas.Luces;
  */
 public class SistemaLuces {
     private LucesInterior interior;
-    
+    private LucesDelanteras delanteras;
     private Direccionales direccionales;
+     private LucesEmergencia emergencia;
     
     public SistemaLuces(){
         this.interior = new LucesInterior();
+        this.delanteras = new LucesDelanteras();
         this.direccionales = new Direccionales();
+        this.emergencia = new LucesEmergencia();
     }
     
-    public void encenderLucesInterior(){ //interior
-        interior.encender();
+    public void puertaAbierta() {
+        interior.encenderPorPuerta();
+    }
+    public void puertaCerrada() {
+        interior.apagarPorPuerta();
     }
     
-    public void apagarLucesInterior(){
-        interior.apagar();   
+    public void encenderLucesAltas() {
+        delanteras.encenderLucesAltas();
+    }
+    public void encenderLucesBajas() {
+        delanteras.encenderLucesBajas();
+    }
+    public void apagarLucesDelanteras() {
+        delanteras.apagarLuces();
     }
     
-    public void ajustarNivel(int nivel){
-        interior.ajustarNivel(nivel);
+    public void encenderDireccionalIzq(){ 
+        direccionales.encenderDireccional(DireccionEnum.IZQUIERDA);
     }
-    
-    
-    public void encenderDireccionalIzq(){ //Direccionales
-        direccionales.encencerDireccional(DireccionEnum.IZQUIERDA);
-    }
-    
     public void encenderDireccionalDer(){ 
-        direccionales.encencerDireccional(DireccionEnum.DERECHA);
+        direccionales.encenderDireccional(DireccionEnum.DERECHA);
     }
-    
     public void apagarDireccional(){
         direccionales.apagarDireccional();
+    }
+    
+    public void activarLuEmergencia() {
+        emergencia.activarEmergencia();
+    }
+    public void apagarLuzEmergencia() {
+        emergencia.desactivarEmergencia();
     }
 }
