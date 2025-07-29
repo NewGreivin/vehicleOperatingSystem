@@ -10,6 +10,7 @@ package Subsistemas.Luces;
  */
 public class SistemaLuces {
     private LucesInterior interior;
+    
     private Direccionales direccionales;
     
     public SistemaLuces(){
