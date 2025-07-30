@@ -22,6 +22,7 @@ public class SistemaEnergia implements Informacion {
 
     public SistemaEnergia() {
         this.nivel = EnergiaNivel.LLENO;
+        this.energiaActual = 100;
         actualizarNivel();
     }
 
