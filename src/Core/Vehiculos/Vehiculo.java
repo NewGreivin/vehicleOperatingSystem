@@ -93,18 +93,19 @@ public class Vehiculo {
         this.año = año;
         
         this.motor = new Motor();
+        this.energia = new SistemaEnergia();
+        this.transmision = new SistemaTransmicion(motor);
         this.encendido = new SistemaEncendido(motor, energia);
+        this.alarma = new SistemaAlarma(false);
         this.luces = new SistemaLuces();
         this.puertas = new SistemaPuerta(false, alarma, luces);
+        this.tipoCinturon = TipoCinturon.CONDUCTOR;
         this.cinturones = new SistemaCinturon(false, tipoCinturon, encendido);
-        this.alarma = new SistemaAlarma(false);
         this.limpiaparabrisas = new SistemaParabrisas(encendido);
         this.radio = new SistemaRadio(encendido);
         this.climatizacion = new SistemaClimatizacion(encendido);
-        this.energia = new SistemaEnergia();
         this.sensores = new SistemaSensores(encendido, transmision);
         this.kilometraje = new SistemaKilometraje(transmision, motor);
-        this.transmision = new SistemaTransmicion(motor);
     }
     
 }
