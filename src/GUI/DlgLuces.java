@@ -4,13 +4,15 @@
  */
 package GUI;
 
+import Core.Simuladores.Simulador;
+
 /**
  *
  * @author Usuario
  */
-public class MecanismoLuces extends javax.swing.JDialog {
-    
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(MecanismoLuces.class.getName());
+public class DlgLuces extends javax.swing.JDialog {
+    private Simulador simulador;
+    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(DlgLuces.class.getName());
 
     private boolean lucesGenerales = false;
     private boolean luzAlta = false;
@@ -21,8 +23,9 @@ public class MecanismoLuces extends javax.swing.JDialog {
     /**
      * Creates new form MecanismoLuces
      */
-    public MecanismoLuces(java.awt.Frame parent, boolean modal) {
+    public DlgLuces(java.awt.Frame parent, boolean modal, Simulador simulador) {
         super(parent, modal);
+        this.simulador = simulador;
         initComponents();
         actualizarBotones();
     }
@@ -37,32 +40,22 @@ public class MecanismoLuces extends javax.swing.JDialog {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        btnLucesGenerales = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
         btnLuzAlta = new javax.swing.JButton();
         btnLuzBaja = new javax.swing.JButton();
-        btnLucesEmergencia = new javax.swing.JButton();
         btnDireccionalIzq = new javax.swing.JButton();
-        btnDireccionalDer = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnDireccionalDer = new javax.swing.JButton();
+        btnLucesEmergencia = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        Apagada = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        getContentPane().setLayout(new java.awt.GridBagLayout());
+        setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnLucesGenerales.setText("LucesGenerales");
-        btnLucesGenerales.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLucesGeneralesActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 14, 0, 64);
-        getContentPane().add(btnLucesGenerales, gridBagConstraints);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnLuzAlta.setText("Alta");
         btnLuzAlta.addActionListener(new java.awt.event.ActionListener() {
@@ -70,14 +63,7 @@ public class MecanismoLuces extends javax.swing.JDialog {
                 btnLuzAltaActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 39;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 12, 0, 0);
-        getContentPane().add(btnLuzAlta, gridBagConstraints);
+        jPanel1.add(btnLuzAlta, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 230, 150, -1));
 
         btnLuzBaja.setText("Baja");
         btnLuzBaja.addActionListener(new java.awt.event.ActionListener() {
@@ -85,28 +71,7 @@ public class MecanismoLuces extends javax.swing.JDialog {
                 btnLuzBajaActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 2;
-        gridBagConstraints.ipadx = 39;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(12, 12, 0, 0);
-        getContentPane().add(btnLuzBaja, gridBagConstraints);
-
-        btnLucesEmergencia.setText("Emergencia");
-        btnLucesEmergencia.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLucesEmergenciaActionPerformed(evt);
-            }
-        });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 19;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(21, 14, 0, 64);
-        getContentPane().add(btnLucesEmergencia, gridBagConstraints);
+        jPanel1.add(btnLuzBaja, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 150, -1));
 
         btnDireccionalIzq.setText("Izquierda");
         btnDireccionalIzq.addActionListener(new java.awt.event.ActionListener() {
@@ -114,14 +79,10 @@ public class MecanismoLuces extends javax.swing.JDialog {
                 btnDireccionalIzqActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 33;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(19, 12, 179, 0);
-        getContentPane().add(btnDireccionalIzq, gridBagConstraints);
+        jPanel1.add(btnDireccionalIzq, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 120, 130, -1));
+
+        jLabel1.setText("Direccionales");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 20, -1, -1));
 
         btnDireccionalDer.setText("Derecha");
         btnDireccionalDer.addActionListener(new java.awt.event.ActionListener() {
@@ -129,31 +90,28 @@ public class MecanismoLuces extends javax.swing.JDialog {
                 btnDireccionalDerActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 3;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridheight = 2;
-        gridBagConstraints.ipadx = 38;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(19, 14, 179, 64);
-        getContentPane().add(btnDireccionalDer, gridBagConstraints);
+        jPanel1.add(btnDireccionalDer, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, 130, -1));
 
-        jLabel1.setText("Direccionales");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 3;
-        gridBagConstraints.gridwidth = 2;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 18, 0, 0);
-        getContentPane().add(jLabel1, gridBagConstraints);
+        btnLucesEmergencia.setText("Emergencia");
+        btnLucesEmergencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLucesEmergenciaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnLucesEmergencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 200, 200, -1));
 
         jLabel2.setText("Luces");
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 1;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 35, 0, 0);
-        getContentPane().add(jLabel2, gridBagConstraints);
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        Apagada.setText("Apagada");
+        Apagada.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ApagadaActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Apagada, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 150, -1));
+
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 530, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -175,12 +133,6 @@ public class MecanismoLuces extends javax.swing.JDialog {
         actualizarBotones();
         // TODO add your handling code here:
     }//GEN-LAST:event_btnLuzBajaActionPerformed
-
-    private void btnLucesGeneralesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLucesGeneralesActionPerformed
-        lucesGenerales = !lucesGenerales;
-        actualizarBotones();
-// TODO add your handling code here:
-    }//GEN-LAST:event_btnLucesGeneralesActionPerformed
 
     private void btnLucesEmergenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLucesEmergenciaActionPerformed
         emergencia = !emergencia;
@@ -212,8 +164,11 @@ public class MecanismoLuces extends javax.swing.JDialog {
 // TODO add your handling code here:
     }//GEN-LAST:event_btnDireccionalDerActionPerformed
 
+    private void ApagadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApagadaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ApagadaActionPerformed
+
     private void actualizarBotones() {
-        btnLucesGenerales.setText("Luces Generales: " + (lucesGenerales ? "ON" : "OFF"));
         btnLuzAlta.setText("Luz Alta: " + (luzAlta ? "ON" : "OFF"));
         btnLuzBaja.setText("Luz Baja: " + (luzBaja ? "ON" : "OFF"));
         btnLucesEmergencia.setText("Emergencia: " + (emergencia ? "ON" : "OFF"));
@@ -247,7 +202,8 @@ public class MecanismoLuces extends javax.swing.JDialog {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
-                MecanismoLuces dialog = new MecanismoLuces(new javax.swing.JFrame(), true);
+                Simulador simulador = new Simulador(); 
+                DlgLuces dialog = new DlgLuces(new javax.swing.JFrame(), true, simulador);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -260,14 +216,15 @@ public class MecanismoLuces extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Apagada;
     private javax.swing.JButton btnDireccionalDer;
     private javax.swing.JButton btnDireccionalIzq;
     private javax.swing.JButton btnLucesEmergencia;
-    private javax.swing.JButton btnLucesGenerales;
     private javax.swing.JButton btnLuzAlta;
     private javax.swing.JButton btnLuzBaja;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
     
 }
