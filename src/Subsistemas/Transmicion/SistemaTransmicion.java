@@ -36,10 +36,26 @@ public class SistemaTransmicion {
     }
      
      private void calcularRevoluciones() {
-         velocidad = (motor.getRevoluciones() - 800) / 100;  // Calcula velocidad aproximada según RPM
-        if (velocidad < 0) {
-            velocidad = 0;
-        }
+         int rpmMin = motor.getRevoluciones();
+
+         if (rpmMin <= 800) {
+             velocidad = 0;
+         return;
+         }
+         int rpmUtil = rpmMin - 800;
+
+          velocidad = rpmUtil / 25;
+
+         if (velocidad > 120) {
+              velocidad = 120;
+         }
      }
-     
+     public void detenerVehiculo() {
+         this.velocidad = 0;
+         motor. setRevoluciones(800); // RPM en ralentí
+     }
 }
+         
+
+
+     
