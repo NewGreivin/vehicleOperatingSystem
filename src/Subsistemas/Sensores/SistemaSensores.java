@@ -80,7 +80,7 @@ public class SistemaSensores implements Activable {
     }
 private static void reproducirAlerta() {
         try {
-            File sonido = new File("src/sonidos/alerta_sensor.wav");
+            File sonido = new File("src/sonidos/alerta.wav");
             AudioInputStream audioInputStream = AudioSystem.getAudioInputStream(sonido);
             Clip clip = AudioSystem.getClip();
             clip.open(audioInputStream);
