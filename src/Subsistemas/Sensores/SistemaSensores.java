@@ -69,11 +69,13 @@ public class SistemaSensores implements Activable {
         // Alerta si hay obstáculo al retroceder
         if (reversa.isActivado() && reversa.isObstaculoDetectado()) {
             reproducirAlerta();
+            transmision.detenerVehiculo();
         }
 
         // Alerta si se intenta mover con el freno de mano puesto
         if (transmision.getVelocidad() > 0 && frenoMano.isActivado()) {
             reproducirAlerta();
+            transmision.detenerVehiculo();
         }
     }
 private static void reproducirAlerta() {
