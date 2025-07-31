@@ -15,7 +15,7 @@ public class Pruebas {
     public static void main(String[] args) {
         JFrame frame = new JFrame("Test");
 
-        PanelAlarma panel = new PanelAlarma();
+        PanelRadioClimatizacion panel = new PanelRadioClimatizacion();
 
         frame.setContentPane(panel);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
