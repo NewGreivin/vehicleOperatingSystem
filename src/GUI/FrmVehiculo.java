@@ -102,7 +102,7 @@ public class FrmVehiculo extends javax.swing.JFrame {
                 btnEnergiaActionPerformed(evt);
             }
         });
-        panelSuperior.add(btnEnergia, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, -1, -1));
+        panelSuperior.add(btnEnergia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 80, 70));
 
         btnLimpiaParabrisas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/OFFLimpiaParabrisas.png"))); // NOI18N
         btnLimpiaParabrisas.setBorderPainted(false);
@@ -117,7 +117,7 @@ public class FrmVehiculo extends javax.swing.JFrame {
         panelSuperior.add(btnLimpiaParabrisas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 100, 90));
 
         jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setForeground(new java.awt.Color(255, 255, 255));
+        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
         jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
         panelSuperior.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 10, 430));
 
@@ -431,8 +431,9 @@ public class FrmVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAceleradorActionPerformed
 
     private void btnClimatizacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClimatizacionActionPerformed
-        estaFrenando = true;
-        estaAcelerando = false;
+        DlgClimatizacion alarma = new DlgClimatizacion(null, true, simulador);
+        alarma.setLocationRelativeTo(null);
+        alarma.setVisible(true);
     }//GEN-LAST:event_btnClimatizacionActionPerformed
 
     private void btnLimpiaParabrisasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiaParabrisasActionPerformed
@@ -468,7 +469,7 @@ public class FrmVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAlarmaActionPerformed
 
     private void btnLucesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLucesActionPerformed
-        DlgLuces luces = new luces(null, true, simulador);
+        DlgLuces luces = new DlgLuces(null, true, simulador);
         luces.setLocationRelativeTo(null);
         luces.setVisible(true);
     }//GEN-LAST:event_btnLucesActionPerformed
