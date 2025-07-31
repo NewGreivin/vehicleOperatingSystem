@@ -41,10 +41,14 @@ public class PanelAlarma extends javax.swing.JPanel {
         btnCerrar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblEstadoAlarma = new javax.swing.JLabel();
+        btnAbrochar = new javax.swing.JButton();
+        btnDesabrochar = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        lblEstadoCinturon = new javax.swing.JLabel();
 
         jLabel1.setBackground(new java.awt.Color(102, 102, 102));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setText("Bloqueo de puerta");
+        jLabel1.setText("Cinturon");
 
         lblEstadoBloqueo.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblEstadoBloqueo.setText("Estado: Desbloqueada");
@@ -94,23 +98,36 @@ public class PanelAlarma extends javax.swing.JPanel {
         lblEstadoAlarma.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         lblEstadoAlarma.setText("Estado: Inactiva");
 
+        btnAbrochar.setText("Abrochar");
+        btnAbrochar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAbrocharActionPerformed(evt);
+            }
+        });
+
+        btnDesabrochar.setText("Desabrochar");
+        btnDesabrochar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDesabrocharActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setBackground(new java.awt.Color(102, 102, 102));
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLabel4.setText("Bloqueo de puerta");
+
+        lblEstadoCinturon.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblEstadoCinturon.setText("Estado: Desabrochado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(69, 69, 69)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(32, 283, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(lblEstadoBloqueo)
-                        .addGap(8, 289, Short.MAX_VALUE)))
-                .addGap(50, 50, 50))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(75, 75, 75)
+                        .addComponent(lblEstadoBloqueo))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(43, 43, 43)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -131,36 +148,69 @@ public class PanelAlarma extends javax.swing.JPanel {
                         .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(98, 98, 98)
-                        .addComponent(lblEstadoPuerta))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(123, 123, 123)
-                        .addComponent(jLabel2)))
+                        .addComponent(lblEstadoPuerta)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(123, 123, 123)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 234, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnAbrochar)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnDesabrochar))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(lblEstadoCinturon)
+                        .addGap(32, 32, 32)))
+                .addGap(46, 46, 46))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(122, 122, 122))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(79, 79, 79)
+                    .addComponent(jLabel4)
+                    .addContainerGap(420, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(55, 55, 55)
                 .addComponent(lblEstadoBloqueo)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBloquear)
                     .addComponent(btnDesbloquear))
-                .addGap(55, 55, 55)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblEstadoPuerta)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCerrar)
-                    .addComponent(btnAbrir))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblEstadoAlarma)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEstadoPuerta)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCerrar)
+                            .addComponent(btnAbrir))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEstadoAlarma)
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblEstadoCinturon)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAbrochar)
+                            .addComponent(btnDesabrochar)))))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(28, 28, 28)
+                    .addComponent(jLabel4)
+                    .addContainerGap(335, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,17 +242,46 @@ public class PanelAlarma extends javax.swing.JPanel {
     lblEstadoAlarma.setText("Estado: Inactiva");
     }//GEN-LAST:event_btnCerrarActionPerformed
 
+    private void btnAbrocharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAbrocharActionPerformed
+    if (!simulador.getVehiculo().getPuertas().isBloqueada() &&
+        simulador.getVehiculo().getPuertas().isPuerta()) {
+        
+        simulador.getVehiculo().getCinturones().encender();
+        lblEstadoCinturon.setText("Estado: Abrochado");
+    } else {
+        lblEstadoCinturon.setText("Bloqueado y cerrado");
+    }
+
+    }//GEN-LAST:event_btnAbrocharActionPerformed
+
+    private void btnDesabrocharActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDesabrocharActionPerformed
+    if (!simulador.getVehiculo().getPuertas().isBloqueada() &&
+        simulador.getVehiculo().getPuertas().isPuerta()) {
+        
+        simulador.getVehiculo().getCinturones().apagar();
+        lblEstadoCinturon.setText("Estado: Desabrochado");
+    } else {
+        lblEstadoCinturon.setText("Bloqueado y cerrado");
+    }
+
+    }//GEN-LAST:event_btnDesabrocharActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAbrir;
+    private javax.swing.JButton btnAbrochar;
     private javax.swing.JButton btnBloquear;
     private javax.swing.JButton btnCerrar;
+    private javax.swing.JButton btnDesabrochar;
     private javax.swing.JButton btnDesbloquear;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel lblEstadoAlarma;
     private javax.swing.JLabel lblEstadoBloqueo;
+    private javax.swing.JLabel lblEstadoCinturon;
     private javax.swing.JLabel lblEstadoPuerta;
     // End of variables declaration//GEN-END:variables
 }
+
