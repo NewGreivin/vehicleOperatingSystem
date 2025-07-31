@@ -16,6 +16,10 @@ public class Motor implements Activable{
         return revoluciones;
     }
 
+    public void setRevoluciones(int revoluciones) {
+        this.revoluciones = revoluciones;
+    }
+    
     public Motor() {
         this.revoluciones = 0;
         this.encendido = false;
