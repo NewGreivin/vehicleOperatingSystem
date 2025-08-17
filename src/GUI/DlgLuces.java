@@ -165,7 +165,9 @@ public class DlgLuces extends javax.swing.JDialog {
     }//GEN-LAST:event_btnDireccionalDerActionPerformed
 
     private void ApagadaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApagadaActionPerformed
-        // TODO add your handling code here:
+         luzAlta = false;
+         luzBaja = false;
+         actualizarBotones();
     }//GEN-LAST:event_ApagadaActionPerformed
 
     private void actualizarBotones() {

@@ -4,8 +4,6 @@
 package GUI;
 
 import Core.Simuladores.Simulador;
-import GUI.DlgEnergia;
-import GUI.DlgLimpiaparabrisas;
 import Subsistemas.Transmicion.PedalAcelerador;
 import Subsistemas.Transmicion.PedalFreno;
 import Subsistemas.Transmicion.PosicionTransmision;
@@ -35,12 +33,11 @@ public class FrmVehiculo extends javax.swing.JFrame {
             CambiarMarchas(valor);
         }
     });
-            
-        
         simulador = new Simulador();
         acelerador = new PedalAcelerador(simulador.getVehiculo().getMotor());
         freno = new PedalFreno(simulador.getVehiculo().getMotor());
         this.setExtendedState(javax.swing.JFrame.MAXIMIZED_BOTH);
+        Iniciarlbl();
         timer.start();
     }
 
@@ -54,7 +51,10 @@ public class FrmVehiculo extends javax.swing.JFrame {
         panelSuperior = new javax.swing.JPanel();
         btnEnergia = new javax.swing.JButton();
         btnLimpiaParabrisas = new javax.swing.JButton();
-        jSeparator1 = new javax.swing.JSeparator();
+        btnMotor = new javax.swing.JToggleButton();
+        btnClimatizacion = new javax.swing.JButton();
+        btnAlarma = new javax.swing.JButton();
+        btnLuces = new javax.swing.JButton();
         panelInferior = new javax.swing.JPanel();
         lblAcelerador = new javax.swing.JLabel();
         lblFreno = new javax.swing.JLabel();
@@ -72,14 +72,10 @@ public class FrmVehiculo extends javax.swing.JFrame {
         btnReverseON = new javax.swing.JButton();
         lblFrenoMano = new javax.swing.JLabel();
         lblReverseSensor = new javax.swing.JLabel();
-        panelIzquierdo = new javax.swing.JPanel();
-        btnMotor = new javax.swing.JToggleButton();
-        btnClimatizacion = new javax.swing.JButton();
-        btnAlarma = new javax.swing.JButton();
-        btnLuces = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Simulador de Vehiculo");
+        setResizable(false);
 
         Desktopvehiculo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
@@ -102,7 +98,7 @@ public class FrmVehiculo extends javax.swing.JFrame {
                 btnEnergiaActionPerformed(evt);
             }
         });
-        panelSuperior.add(btnEnergia, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 160, 80, 70));
+        panelSuperior.add(btnEnergia, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 290, 80, 70));
 
         btnLimpiaParabrisas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/OFFLimpiaParabrisas.png"))); // NOI18N
         btnLimpiaParabrisas.setBorderPainted(false);
@@ -114,12 +110,75 @@ public class FrmVehiculo extends javax.swing.JFrame {
                 btnLimpiaParabrisasActionPerformed(evt);
             }
         });
-        panelSuperior.add(btnLimpiaParabrisas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 100, 90));
+        panelSuperior.add(btnLimpiaParabrisas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 270, 100, 90));
 
-        jSeparator1.setBackground(new java.awt.Color(255, 255, 255));
-        jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
-        panelSuperior.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 0, 10, 430));
+        btnMotor.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
+        btnMotor.setForeground(new java.awt.Color(255, 255, 255));
+        btnMotor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
+        btnMotor.setText("<html>MOTOR<br>ENCENDER<br>APAGAR</html>");
+        btnMotor.setBorderPainted(false);
+        btnMotor.setContentAreaFilled(false);
+        btnMotor.setFocusPainted(false);
+        btnMotor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnMotor.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
+        btnMotor.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonEncendido1.png"))); // NOI18N
+        btnMotor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMotorActionPerformed(evt);
+            }
+        });
+        panelSuperior.add(btnMotor, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, -1, 100));
+
+        btnClimatizacion.setBackground(new java.awt.Color(255, 255, 255));
+        btnClimatizacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnClimatizacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnClimatizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
+        btnClimatizacion.setText("<html>Climatiacion/<br>Radio</html>");
+        btnClimatizacion.setBorderPainted(false);
+        btnClimatizacion.setContentAreaFilled(false);
+        btnClimatizacion.setFocusPainted(false);
+        btnClimatizacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnClimatizacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
+        btnClimatizacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClimatizacionActionPerformed(evt);
+            }
+        });
+        panelSuperior.add(btnClimatizacion, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 50, -1, -1));
+
+        btnAlarma.setBackground(new java.awt.Color(255, 255, 255));
+        btnAlarma.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnAlarma.setForeground(new java.awt.Color(255, 255, 255));
+        btnAlarma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
+        btnAlarma.setText("Alarma");
+        btnAlarma.setBorderPainted(false);
+        btnAlarma.setContentAreaFilled(false);
+        btnAlarma.setFocusPainted(false);
+        btnAlarma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnAlarma.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
+        btnAlarma.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAlarmaActionPerformed(evt);
+            }
+        });
+        panelSuperior.add(btnAlarma, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 50, -1, -1));
+
+        btnLuces.setBackground(new java.awt.Color(255, 255, 255));
+        btnLuces.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        btnLuces.setForeground(new java.awt.Color(255, 255, 255));
+        btnLuces.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
+        btnLuces.setText("Luces");
+        btnLuces.setBorderPainted(false);
+        btnLuces.setContentAreaFilled(false);
+        btnLuces.setFocusPainted(false);
+        btnLuces.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btnLuces.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
+        btnLuces.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLucesActionPerformed(evt);
+            }
+        });
+        panelSuperior.add(btnLuces, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, -1, -1));
 
         panelSecundario.add(panelSuperior, java.awt.BorderLayout.CENTER);
 
@@ -240,7 +299,7 @@ public class FrmVehiculo extends javax.swing.JFrame {
                 btnFrenoManoONActionPerformed(evt);
             }
         });
-        panelInferior.add(btnFrenoManoON, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 80, -1));
+        panelInferior.add(btnFrenoManoON, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 50, 80, -1));
 
         btnReverseOFF.setText("<html>Desactivar<br>Sensor<br>Reversa</html>");
         btnReverseOFF.addActionListener(new java.awt.event.ActionListener() {
@@ -256,125 +315,28 @@ public class FrmVehiculo extends javax.swing.JFrame {
                 btnReverseONActionPerformed(evt);
             }
         });
-        panelInferior.add(btnReverseON, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 200, 80, -1));
+        panelInferior.add(btnReverseON, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 200, 80, -1));
 
         lblFrenoMano.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblFrenoMano.setText("ON");
         lblFrenoMano.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelInferior.add(lblFrenoMano, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 50, 40, 50));
+        lblFrenoMano.setOpaque(true);
+        panelInferior.add(lblFrenoMano, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 50, 50, 50));
 
         lblReverseSensor.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblReverseSensor.setText("ON");
         lblReverseSensor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        lblReverseSensor.setOpaque(true);
         panelInferior.add(lblReverseSensor, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 200, 50, 50));
 
         panelSecundario.add(panelInferior, java.awt.BorderLayout.SOUTH);
-
-        panelIzquierdo.setBackground(new java.awt.Color(25, 25, 25));
-
-        btnMotor.setFont(new java.awt.Font("Arial Rounded MT Bold", 0, 14)); // NOI18N
-        btnMotor.setForeground(new java.awt.Color(255, 255, 255));
-        btnMotor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
-        btnMotor.setText("<html>MOTOR<br>ENCENDER<br>APAGAR</html>");
-        btnMotor.setBorderPainted(false);
-        btnMotor.setContentAreaFilled(false);
-        btnMotor.setFocusPainted(false);
-        btnMotor.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnMotor.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
-        btnMotor.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonEncendido1.png"))); // NOI18N
-        btnMotor.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMotorActionPerformed(evt);
-            }
-        });
-
-        btnClimatizacion.setBackground(new java.awt.Color(255, 255, 255));
-        btnClimatizacion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        btnClimatizacion.setForeground(new java.awt.Color(255, 255, 255));
-        btnClimatizacion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
-        btnClimatizacion.setText("<html>Climatiacion/<br>Radio</html>");
-        btnClimatizacion.setBorderPainted(false);
-        btnClimatizacion.setContentAreaFilled(false);
-        btnClimatizacion.setFocusPainted(false);
-        btnClimatizacion.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnClimatizacion.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
-        btnClimatizacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClimatizacionActionPerformed(evt);
-            }
-        });
-
-        btnAlarma.setBackground(new java.awt.Color(255, 255, 255));
-        btnAlarma.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        btnAlarma.setForeground(new java.awt.Color(255, 255, 255));
-        btnAlarma.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
-        btnAlarma.setText("Alarma");
-        btnAlarma.setBorderPainted(false);
-        btnAlarma.setContentAreaFilled(false);
-        btnAlarma.setFocusPainted(false);
-        btnAlarma.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnAlarma.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
-        btnAlarma.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAlarmaActionPerformed(evt);
-            }
-        });
-
-        btnLuces.setBackground(new java.awt.Color(255, 255, 255));
-        btnLuces.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        btnLuces.setForeground(new java.awt.Color(255, 255, 255));
-        btnLuces.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonApagado1.png"))); // NOI18N
-        btnLuces.setText("Luces");
-        btnLuces.setBorderPainted(false);
-        btnLuces.setContentAreaFilled(false);
-        btnLuces.setFocusPainted(false);
-        btnLuces.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        btnLuces.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Imagenes/BotonTranscision.png"))); // NOI18N
-        btnLuces.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnLucesActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout panelIzquierdoLayout = new javax.swing.GroupLayout(panelIzquierdo);
-        panelIzquierdo.setLayout(panelIzquierdoLayout);
-        panelIzquierdoLayout.setHorizontalGroup(
-            panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIzquierdoLayout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addGroup(panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnLuces, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAlarma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnClimatizacion)
-                    .addComponent(btnMotor))
-                .addContainerGap(14, Short.MAX_VALUE))
-        );
-        panelIzquierdoLayout.setVerticalGroup(
-            panelIzquierdoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIzquierdoLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(btnMotor, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80)
-                .addComponent(btnClimatizacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAlarma)
-                .addGap(78, 78, 78)
-                .addComponent(btnLuces)
-                .addGap(37, 37, 37))
-        );
 
         javax.swing.GroupLayout panelPrincipalLayout = new javax.swing.GroupLayout(panelPrincipal);
         panelPrincipal.setLayout(panelPrincipalLayout);
         panelPrincipalLayout.setHorizontalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelPrincipalLayout.createSequentialGroup()
-                .addComponent(panelIzquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelSecundario, javax.swing.GroupLayout.DEFAULT_SIZE, 1026, Short.MAX_VALUE))
+            .addComponent(panelSecundario, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 960, Short.MAX_VALUE)
         );
         panelPrincipalLayout.setVerticalGroup(
             panelPrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelIzquierdo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(panelSecundario, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
         );
 
@@ -454,7 +416,7 @@ public class FrmVehiculo extends javax.swing.JFrame {
 
     private void btnFrenoManoONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFrenoManoONActionPerformed
        simulador.getVehiculo().getSensores().getFrenoMano().ponerFreno();
-       lblFrenoMano.setBackground(Color.GREEN);
+       lblFrenoMano.setBackground(Color.GREEN);    
     }//GEN-LAST:event_btnFrenoManoONActionPerformed
 
     private void btnReverseONActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReverseONActionPerformed
@@ -474,6 +436,11 @@ public class FrmVehiculo extends javax.swing.JFrame {
         luces.setVisible(true);
     }//GEN-LAST:event_btnLucesActionPerformed
 
+    private void Iniciarlbl() {
+        lblFrenoMano.setBackground(Color.GREEN);    
+        lblReverseSensor.setBackground(Color.RED);     
+        
+    }
         Timer timer = new Timer (1000, new ActionListener(){      
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -561,7 +528,6 @@ public class FrmVehiculo extends javax.swing.JFrame {
     private javax.swing.JToggleButton btnMotor;
     private javax.swing.JButton btnReverseOFF;
     private javax.swing.JButton btnReverseON;
-    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JLabel lblAcelerador;
     private javax.swing.JLabel lblFreno;
     private javax.swing.JLabel lblFrenoMano;
@@ -571,7 +537,6 @@ public class FrmVehiculo extends javax.swing.JFrame {
     private javax.swing.JLabel lblTituloTablero;
     private javax.swing.JLabel lblVelocidad;
     private javax.swing.JPanel panelInferior;
-    private javax.swing.JPanel panelIzquierdo;
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelSecundario;
     private javax.swing.JPanel panelSuperior;
